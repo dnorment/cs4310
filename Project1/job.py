@@ -10,3 +10,6 @@ class Job():
     def setFinished(self, time):
         self.finished = True
         self.finishedAt = time
+    
+    def __str__(self):
+        return "Job {0}, {1} remaining".format(self.jobNum, self.remainingTime)
