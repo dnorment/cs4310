@@ -1,3 +1,6 @@
+from job import Job
+
+import numpy as np
 import random
 
 def generateJobs(num, maxTime=15):
@@ -15,5 +18,19 @@ def generateJobs(num, maxTime=15):
             f.close()
             print("Generated job.txt")
 
-if __name__ == "__main__":
-    generateJobs(10)
+def readJobs(num):
+    try:
+        print("Reading jobs into ndarray:")
+        jobList = []
+        with open("Project1/job.txt",'r') as f:
+            for i in range(num):
+                nn = f.readline()
+                rt = int(f.readline())
+                num = int(nn.strip("Job"))
+                jobList.append(Job(num, rt))
+    finally:
+        f.close()
+        jobArray = np.array(jobList)
+        print("Read jobs into ndarray")
+    
+    return jobArray
