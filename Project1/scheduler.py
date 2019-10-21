@@ -1,5 +1,4 @@
 import math
-import numpy as np
 
 class Scheduler():
     
@@ -11,6 +10,9 @@ class Scheduler():
         self.currentTime = 0
         self.scheduleTable = []
     
+    def avgTurnaround(self):
+        return sum(job.finishedAt for job in self.jobArray) / self.numJobs
+
     def isFinished(self):
         return all(job.finished for job in self.jobArray)
     
@@ -20,7 +22,6 @@ class Scheduler():
     def run(self, maxBurstTime=math.inf):
         while not self.isFinished():
             currJob = self.jobArray[self.currentJob % self.numJobs]
-            print(str(currJob))
             if not currJob.finished and (self.currentTime - self.burstStart < maxBurstTime):
                 self.tick()
                 currJob.work(self.currentTime)
@@ -35,22 +36,3 @@ class Scheduler():
                     self.currentJob += 1
             else:
                 self.currentJob += 1
-        print(self.scheduleTable)
-        print([j.finishedAt for j in self.jobArray])
-
-
-class FirstComeFirstServe(Scheduler):
-    pass
-
-
-class ShortestJobFirst(FirstComeFirstServe):
-
-    def run(self):
-        self.jobArray.sort() #sort by shortest remaining time first
-        super().run()
-
-
-class RoundRobin(Scheduler):
-
-    def run(self, maxTime):
-        super().run(maxBurstTime=maxTime)
