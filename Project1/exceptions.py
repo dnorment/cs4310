@@ -1,0 +1,2 @@
+class TooManyJobsException(Exception):
+    pass
