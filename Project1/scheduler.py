@@ -27,7 +27,7 @@ class Scheduler():
                 currJob.work(self.currentTime)
                 if currJob.finished:
                     self.burstFinish = self.currentTime
-                    self.scheduleTable.append([currJob.jobNum, self.burstStart, self.burstFinish])
+                    self.scheduleTable.append([currJob.jobNum, self.burstStart, self.burstFinish, currJob.jobNum])
                     self.burstStart = self.burstFinish
             elif self.currentTime - self.burstStart >= maxBurstTime:
                     self.burstFinish = self.currentTime
