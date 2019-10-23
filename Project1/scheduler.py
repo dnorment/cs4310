@@ -36,3 +36,26 @@ class Scheduler():
                     self.currentJob += 1
             else:
                 self.currentJob += 1
+
+
+class FirstComeFirstServe(Scheduler):
+    pass
+
+
+class ShortestJobFirst(FirstComeFirstServe):
+
+    def run(self):
+        self.jobArray.sort() #sort by shortest remaining time first
+        super().run()
+
+
+class RoundRobin2(Scheduler):
+
+    def run(self):
+        super().run(maxBurstTime=2)
+
+
+class RoundRobin5(Scheduler):
+
+    def run(self):
+        super().run(maxBurstTime=5)
