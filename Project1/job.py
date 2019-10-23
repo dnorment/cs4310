@@ -1,5 +1,7 @@
 class Job():
-
+    """
+    Class to simulate a job in a scheduler. Holds job number, remaining time, and whether the job has been completed or not.
+    """
     finishedAt = None
 
     def __init__(self, jobNum, remainingTime, finished=False):
