@@ -18,7 +18,7 @@ public class Optimal extends PageReplacer {
                 dist = this.nextUse(this.pages[i].num);
             }
         }
-        this.pages[replaceIndex] = new PageFrame(num, currIndex); //replace page in frame
+        this.pages[replaceIndex] = new PageFrame(num, currIndex, currIndex); //replace page in frame
         this.pageFaults++;
     }
 }

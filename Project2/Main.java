@@ -7,17 +7,17 @@ public class Main {
         String refString = "70120304230321201701";
 
         //for (int frames : NumberOfPageFrame) {
-            PageReplacer optml = new Optimal(refString, 3);
+            /*PageReplacer optml = new Optimal(refString, 3);
             int faults = optml.run();
+            System.out.println(faults);*/
+
+            PageReplacer fifo = new LeastRecentlyUsed(refString, 3);
+            int faults = fifo.run();
             System.out.println(faults);
 
-            PageReplacer fifo = new FirstInFirstOut(refString, 3);
-            faults = fifo.run();
-            System.out.println(faults);
-
-            PageReplacer lru = new LeastRecentlyUsed(refString, 3);
-            faults = lru.run();
-            System.out.println(faults);
+            /*PageReplacer lru = new LeastRecentlyUsed(refString, 3);
+            int faults = lru.run();
+            System.out.println(faults);*/
         //}   
     }
 }

@@ -38,14 +38,14 @@ public abstract class PageReplacer {
     }
 
     protected int lastUse(int num) {
-        int dist = 1;
-        for (int i=currIndex-1; i>=0; i--) {
+        int dist = 0;
+        for (int i=currIndex; i>=0; i--) {
             if (Integer.parseInt(refString.substring(i,i+1)) == num) {
                 return dist;
             }
             dist++;
         }
-        return Integer.MAX_VALUE;
+        return -1;
     }
 
     protected int nextUse(int num) {
