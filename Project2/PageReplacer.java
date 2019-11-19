@@ -4,12 +4,14 @@ public abstract class PageReplacer {
     protected PageFrame[] pages;
     int currIndex;
     protected int pageFaults;
+    boolean print;
 
-    public PageReplacer(String ref, int frames) {
+    public PageReplacer(String ref, int frames, boolean print) {
         this.refString = ref;
         this.pages = new PageFrame[frames];
         this.currIndex = 0;
         this.pageFaults = 0;
+        this.print = print;
     }
 
     public int run() {
@@ -17,9 +19,9 @@ public abstract class PageReplacer {
             int currPageNum = Integer.parseInt(refString.substring(i,i+1)); //get page number requested by string
             if (!this.contains(currPageNum)) { //if page not in page table
                 this.replacePage(currPageNum);
-                this.printStep(true);
+                if (this.print) this.printStep(true);
             } else {
-                this.printStep(false);
+                if (this.print) this.printStep(false);
             }
             this.currIndex++;
         }

@@ -1,7 +1,7 @@
 public class FirstInFirstOut extends PageReplacer {
 
-    public FirstInFirstOut(String ref, int frames) {
-        super(ref, frames);
+    public FirstInFirstOut(String ref, int frames, boolean print) {
+        super(ref, frames, print);
     }
 
     @Override

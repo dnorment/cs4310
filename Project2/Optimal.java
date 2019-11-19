@@ -1,7 +1,7 @@
 public class Optimal extends PageReplacer {
     
-    public Optimal(String ref, int frames) {
-        super(ref, frames);
+    public Optimal(String ref, int frames, boolean print) {
+        super(ref, frames, print);
     }
 
     @Override

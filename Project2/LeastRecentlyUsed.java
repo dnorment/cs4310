@@ -1,7 +1,7 @@
 public class LeastRecentlyUsed extends PageReplacer {
     
-    public LeastRecentlyUsed(String ref, int frames) {
-        super(ref, frames);
+    public LeastRecentlyUsed(String ref, int frames, boolean print) {
+        super(ref, frames, print);
     }
     
     @Override
